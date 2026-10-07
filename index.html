@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Seni Teater - Akting Stilistik</title>
+    <style>
+        /* ==========================================================================
+           1. DESAIN & STILISASI GLOBAL (Seni Teater - Gold, Velvet Purple, Charcoal)
+           ========================================================================== */
+        :root {
+            --primary-bg: #1a0f2e;
+            --card-bg: #ffffff;
+            --accent-gold: #f5b041;
+            --accent-gold-hover: #d4ac0d;
+            --velvet-purple: #341f97;
+            --velvet-light: #5f27cd;
+            --theater-red: #ee5253;
+            --text-dark: #2d3436;
+            --text-muted: #636e72;
+            --light-bg: #f8f9fa;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f081d;
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER & NAVIGASI PROGRESS */
+        header {
+            background: linear-gradient(135deg, var(--primary-bg), var(--velvet-purple));
+            color: #ffffff;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-icon {
+            font-size: 1.8rem;
+        }
+
+        .brand-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        .brand-subtitle {
+            font-size: 0.8rem;
+            color: #dcdde1;
+        }
+
+        .user-badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(245, 176, 65, 0.5);
+            display: none;
+        }
+
+        /* PROGRESS BAR */
+        .progress-container {
+            width: 100%;
+            background-color: rgba(255,255,255,0.1);
+            height: 6px;
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-gold), var(--theater-red));
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        /* MAIN CONTAINER */
+        main {
+            max-width: 950px;
+            width: 95%;
+            margin: 25px auto;
+            flex: 1;
+        }
+
+        /* CARD SECTION */
+        .section-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+            border: 1px solid #e0e0e0;
+        }
+
+        .section-card.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            color: var(--velvet-purple);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 10px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* TOMBOL UTAMA & KONTROL */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--velvet-purple);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            touch-action: manipulation;
+        }
+
+        .btn:hover {
+            background: var(--velvet-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(95, 39, 205, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-gold {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        .btn-gold:hover {
+            background: var(--accent-gold-hover);
+            box-shadow: 0 4px 12px rgba(245, 176, 65, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--velvet-purple);
+            color: var(--velvet-purple);
+        }
+
+        .btn-outline:hover {
+            background: var(--velvet-purple);
+            color: #ffffff;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #f1f2f6;
+            gap: 10px;
+        }
+
+        /* FORM STYLES */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #dfe4ea;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--velvet-purple);
+            outline: none;
+            box-shadow: 0 0 8px rgba(52, 31, 151, 0.2);
+        }
+
+        /* 1. HALAMAN BERANDA */
+        .hero {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .hero-icon {
+            font-size: 4.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            color: var(--velvet-purple);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--theater-red);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .login-box {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 450px;
+            margin: 0 auto;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* 2. PETUNJUK & 3. TUJUAN */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .icon-card {
+            background: var(--light-bg);
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 4px solid var(--velvet-purple);
+            transition: var(--transition);
+        }
+
+        .icon-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .icon-card .card-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .icon-card h4 {
+            color: var(--velvet-purple);
+            margin-bottom: 5px;
+        }
+
+        /* 4. MATERI INTERAKTIF (TABS) */
+        .tabs-nav {
+            display: flex;
+            overflow-x: auto;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1f2f6;
+        }
+
+        .tab-btn {
+            padding: 8px 16px;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active {
+            background: var(--velvet-purple);
+            color: #ffffff;
+        }
+
+        .tab-content {
+            display: none;
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .materi-box {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        /* 5. FITUR AMATI & BEDAKAN */
+        .scenario-card {
+            background: #ffffff;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .scenario-card:hover {
+            border-color: var(--velvet-purple);
+        }
+
+        .option-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-option {
+            flex: 1;
+            min-width: 140px;
+            padding: 10px;
+            border: 2px solid #dcdde1;
+            border-radius: 8px;
+            background: #ffffff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-option:hover {
+            border-color: var(--velvet-purple);
+            background: #f8f9fa;
+        }
+
+        .feedback-box {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback-box.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .feedback-box.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* 6. UBAH GERAK & 7. LAB GERAK */
+        .interactive-lab {
+            background: #2f3640;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .control-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .control-item label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+
+        .control-item select {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #718093;
+            background: #353b48;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .simulation-output {
+            background: #1e272e;
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .simulation-output h4 {
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+
+        /* 8. TANTANGAN IMAJINASI */
+        .challenge-item {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .challenge-item.done {
+            background: #e8f8f5;
+            border-color: #2ecc71;
+        }
+
+        /* 9. KUIS INTERAKTIF */
+        .quiz-question {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--velvet-purple);
+        }
+
+        .quiz-question h4 {
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .quiz-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .quiz-ans-btn {
+            text-align: left;
+            padding: 12px 15px;
+            border: 1.5px solid #dcdde1;
+            border-radius: 8px;
+            background: #ffffff;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .quiz-ans-btn:hover {
+            border-color: var(--velvet-purple);
+            background: #f1f2f6;
+        }
+
+        .quiz-ans-btn.selected {
+            background: var(--velvet-purple);
+            color: #ffffff;
+            border-color: var(--velvet-purple);
+        }
+
+        /* 10. REFLEKSI SISWA */
+        .emoji-rating {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .emoji-btn {
+            font-size: 2rem;
+            padding: 10px 15px;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            background: #fff;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .emoji-btn span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .emoji-btn.selected {
+            border-color: var(--accent-gold);
+            background: #fff9e6;
+            transform: scale(1.1);
+        }
+
+        /* RESULT & BADGES */
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .badge-sangat-baik { background-color: #2ecc71; }
+        .badge-baik { background-color: #3498db; }
+        .badge-cukup { background-color: #f39c12; }
+        .badge-perlu-latihan { background-color: #e74c3c; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #a4b0be;
+            font-size: 0.85rem;
+            margin-top: auto;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* MEDIA QUERIES UNTUK RESPONSIVITAS MOBILE */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 1.7rem; }
+            .hero-subtitle { font-size: 0.95rem; }
+            .section-card { padding: 18px 15px; }
+            .nav-buttons { flex-direction: column-reverse; }
+            .btn { width: 100%; }
+            .emoji-rating { flex-wrap: wrap; }
+            .emoji-btn { flex: 1; min-width: 65px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / BAR NAVIGASI TOP -->
+    <header>
+        <div class="header-container">
+            <div class="brand">
+                <span class="brand-icon">🎭</span>
+                <div>
+                    <div class="brand-title">AKTING STILISTIK</div>
+                    <div class="brand-subtitle">Seni Teater SMP Kelas 9</div>
+                </div>
+            </div>
+            <div id="userBadge" class="user-badge">
+                👤 <span id="badgeName">-</span> (<span id="badgeClass">-</span>)
+            </div>
+        </div>
+        <div class="progress-container">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA DENGAN SISTEM STEP / SECTION -->
+    <main>
+
+        <!-- 1. HALAMAN BERANDA -->
+        <section id="step-1" class="section-card active">
+            <div class="hero">
+                <span class="hero-icon">🎭</span>
+                <h1 class="hero-title">AKTING STILISTIK</h1>
+                <p class="hero-subtitle">Mengubah Gerak Realistik Menjadi Gerak Stilistik</p>
+
+                <div class="login-box">
+                    <h3 style="margin-bottom: 15px; color: var(--velvet-purple);">Identitas Siswa</h3>
+                    <div class="form-group">
+                        <label for="inputName">Nama Lengkap Siswa:</label>
+                        <input type="text" id="inputName" class="form-control" placeholder="Contoh: Ananda Putri" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputClass">Kelas:</label>
+                        <select id="inputClass" class="form-control">
+                            <option value="">-- Pilih Kelas --</option>
+                            <option value="9A">9A</option>
+                            <option value="9B">9B</option>
+                            <option value="9C">9C</option>
+                            <option value="9D">9D</option>
+                            <option value="9E">9E</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-gold btn-block" onclick="startLearning()">
+                        🚀 Mulai Belajar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. PETUNJUK PENGGUNAAN -->
+        <section id="step-2" class="section-card">
+            <h2 class="section-title">📌 Petunjuk Penggunaan</h2>
+            <p class="section-desc">Ikuti tahapan pembelajaran interaktif ini secara runtut untuk menguasai gerak stilistik.</p>
+
+            <div class="grid-cards">
+                <div class="icon-card">
+                    <div class="card-icon">📖</div>
+                    <h4>1. Baca Materi</h4>
+                    <p>Pahami konsep dasar akting stilistik dan elemen pengubah gerak.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="card-icon">👁️</div>
+                    <h4>2. Amati & Bedakan</h4>
+                    <p>Latih ketelitian membedakan gerak realistik dan stilistik.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="card-icon">🔬</div>
+                    <h4>3. Lab & Eksplorasi</h4>
+                    <p>Ubah gerak realistik dengan meracik tempo, tenaga, dan ruang.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="card-icon">🎯</div>
+                    <h4>4. Kuis & Refleksi</h4>
+                    <p>Uji pemahamanmu dan catat hasil refleksi belajar mandiri.</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">Lanjut ke Tujuan ➡️</button>
+            </div>
+        </section>
+
+        <!-- 3. TUJUAN PEMBELAJARAN -->
+        <section id="step-3" class="section-card">
+            <h2 class="section-title">🎯 Capaian & Tujuan Pembelajaran</h2>
+            <p class="section-desc"><strong>Capaian Pembelajaran:</strong> Peserta didik mampu mengidentifikasi dan mengeksplorasi potensi gerak tubuh realistik menjadi gerak stilistik melalui latihan imajinatif.</p>
+
+            <div class="grid-cards">
+                <div class="icon-card">
+                    <div class="card-icon">💡</div>
+                    <h4>Tujuan 1</h4>
+                    <p>Menjelaskan pengertian akting stilistik dengan kalimat sendiri.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="card-icon">⚖️</div>
+                    <h4>Tujuan 2</h4>
+                    <p>Membedakan gerak realistik dan gerak stilistik dalam pementasan.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="card-icon">🔍</div>
+                    <h4>Tujuan 3</h4>
+                    <p>Mengidentifikasi ciri-ciri khusus gerak stilistik.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="card-icon">🔄</div>
+                    <h4>Tujuan 4</h4>
+                    <p>Mengubah gerak tubuh realistik sehari-hari menjadi gerak stilistik.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="card-icon">🎨</div>
+                    <h4>Tujuan 5</h4>
+                    <p>Mengeksplorasi gerak tubuh melalui latihan imajinatif terstruktur.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="card-icon">🌟</div>
+                    <h4>Tujuan 6</h4>
+                    <p>Menciptakan contoh variasi gerak stilistik sederhana.</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">Pelajari Materi ➡️</button>
+            </div>
+        </section>
+
+        <!-- 4. MATERI INTERAKTIF -->
+        <section id="step-4" class="section-card">
+            <h2 class="section-title">📚 Materi Interaktif: Akting Stilistik</h2>
+            <p class="section-desc">Klik setiap tab di bawah ini untuk mempelajari konsep dasar akting teater.</p>
+
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="openTab(event, 'tabA')">A. Pengertian</button>
+                <button class="tab-btn" onclick="openTab(event, 'tabB')">B. Perbedaan Gerak</button>
+                <button class="tab-btn" onclick="openTab(event, 'tabC')">C. Ciri Stilistik</button>
+                <button class="tab-btn" onclick="openTab(event, 'tabD')">D. Teatrikal vs Non-Teatrikal</button>
+                <button class="tab-btn" onclick="openTab(event, 'tabE')">E. Halus & Kasar</button>
+                <button class="tab-btn" onclick="openTab(event, 'tabF')">F. Gesture, Business, Movement</button>
+                <button class="tab-btn" onclick="openTab(event, 'tabG')">G. 4 Elemen Utama</button>
+            </div>
+
+            <div id="tabA" class="tab-content active">
+                <h3>A. Pengertian Akting Stilistik</h3>
+                <div class="materi-box">
+                    <p><strong>Akting Stilistik</strong> adalah gaya berakting yang tidak sekadar menirukan kenyataan sehari-hari, melainkan <em>mengubah, merestrukturisasi, atau memperindah gerak realistik</em> menjadi gerak yang bercitarasa seni, bergaya (stilasi), dan sarat dengan makna simbolis.</p>
+                </div>
+            </div>
+
+            <div id="tabB" class="tab-content">
+                <h3>B. Perbedaan Akting Realistik & Stilistik</h3>
+                <div class="materi-box">
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Akting Realistik:</strong> Menirukan kehidupan nyata persis seperti apa adanya (wajar, alami, biasa). Contoh: Berjalan biasa saat ke warung.</li>
+                        <li><strong>Akting Stilistik:</strong> Gerakan dilebih-lebihkan (*stilisasi*), diperlambat, dipercepat, atau diberi ritme khusus untuk mempertegas suasana hati atau simbol panggung. Contoh: Berjalan lambat membungkuk melambangkan beban hidup yang berat.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="tabC" class="tab-content">
+                <h3>C. Ciri-ciri Gerak Stilistik</h3>
+                <div class="materi-box">
+                    <ol style="margin-left: 20px;">
+                        <li><strong>Artistik & Indah:</strong> Memiliki estetika visual panggung.</li>
+                        <li><strong>Simbolis:</strong> Setiap gerak mengandung arti mendalam (bukan sekadar aktivitas fisik).</li>
+                        <li><strong>Irama & Ritme:</strong> Memiliki kejelasan tempo (lambat, cepat, patah-patah).</li>
+                        <li><strong>Eksagerasi Terukur:</strong> Dilebih-lebihkan dengan maksud teater yang jelas.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div id="tabD" class="tab-content">
+                <h3>D. Gerak Teatrikal vs Nonteatrikal</h3>
+                <div class="materi-box">
+                    <p><strong>Gerak Nonteatrikal:</strong> Gerak tubuh spontan tanpa tujuan pertunjukan (misal: menggaruk kepala saat gatal di rumah).</p>
+                    <p><strong>Gerak Teatrikal:</strong> Gerak yang dirancang khusus untuk ditonton publik panggung dengan niat menyampaikan karakter dan emosi.</p>
+                </div>
+            </div>
+
+            <div id="tabE" class="tab-content">
+                <h3>E. Gerak Halus & Gerak Kasar</h3>
+                <div class="materi-box">
+                    <p><strong>Gerak Halus (Fein Movement):</strong> Gerakan kecil, lembut, fleksibel, mengalir, penuh kehati-hatian (misal: menyentuh pipi dengan rasa iba).</p>
+                    <p><strong>Gerak Kasar (Grob Movement):</strong> Gerakan besar, tegas, kaku, bertenaga kuat, atau patah-patah (misal: menghentakkan kaki saat murka).</p>
+                </div>
+            </div>
+
+            <div id="tabF" class="tab-content">
+                <h3>F. Gesture, Business, dan Movement</h3>
+                <div class="materi-box">
+                    <ul>
+                        <li><strong>Gesture (Sikap Tubuh):</strong> Gerakan anggota tubuh (tangan/kepala) untuk memperjelas pesan emosi (misal: melambaikan tangan).</li>
+                        <li><strong>Business (Sikap Kecil Tokoh):</strong> Aktivitas kecil tokoh yang mendukung karakter/watak (misal: memutar-mutar jam tangan karena gugup).</li>
+                        <li><strong>Movement (Perpindahan):</strong> Gerak perpindahan posisi aktor dari satu titik panggung ke titik panggung lain.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="tabG" class="tab-content">
+                <h3>G. 4 Elemen Penting dalam Akting Stilistik</h3>
+                <div class="materi-box">
+                    <p>1. <strong>Tubuh:</strong> Instrumen utama tempat gerak diolah.</p>
+                    <p>2. <strong>Ekspresi:</strong> Penyelarasan mimik wajah dan emosi internal.</p>
+                    <p>3. <strong>Imajinasi:</strong> Daya pikir untuk menghidupkan situasi yang tidak nyata.</p>
+                    <p>4. <strong>Ruang:</strong> Penguasaan area panggung (tingkat atas, tengah, bawah, luas/sempit).</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">Latihan "Amati & Bedakan" ➡️</button>
+            </div>
+        </section>
+
+        <!-- 5. FITUR "AMATI DAN BEDAKAN" -->
+        <section id="step-5" class="section-card">
+            <h2 class="section-title">🔎 Amati dan Bedakan</h2>
+            <p class="section-desc">Pilihlah jenis gerakan yang paling sesuai untuk setiap situasi di bawah ini!</p>
+
+            <div id="observeList">
+                <!-- Dikatalogkan via JS -->
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">Fitur "Ubah Gerak" ➡️</button>
+            </div>
+        </section>
+
+        <!-- 6. FITUR "UBAH GERAK" -->
+        <section id="step-6" class="section-card">
+            <h2 class="section-title">✨ Fitur "Ubah Gerak"</h2>
+            <p class="section-desc">Tantangan: Berubah dari gerak sehari-hari menjadi gerak karakter stilistik!</p>
+
+            <div class="materi-box" style="margin-bottom: 20px;">
+                <p>📍 <strong>GERAK REALISTIK DASAR:</strong> "Bayangkan kamu sedang berjalan menuju sekolah."</p>
+            </div>
+
+            <div class="form-group">
+                <label>Pilih Karakter / Gaya Stilistik yang Ingin Dicoba:</label>
+                <select id="selectStyle" class="form-control" onchange="updateStyleChallenge()">
+                    <option value="">-- Pilih Gaya Gerak --</option>
+                    <option value="lelah">1. Sangat Lelah (Beban Berat)</option>
+                    <option value="bahagia">2. Sangat Bahagia (Melayang)</option>
+                    <option value="robot">3. Seperti Robot (Patah-patah Machine)</option>
+                    <option value="angin">4. Terkena Angin Kencang (Melawan Alam)</option>
+                    <option value="bulan">5. Berjalan di Bulan (Gravitasi Rendah)</option>
+                </select>
+            </div>
+
+            <div id="styleInstructionBox" class="interactive-lab" style="display: none;">
+                <h3 id="styleTitle" style="color: var(--accent-gold); margin-bottom: 10px;">-</h3>
+                <p id="styleInstruction">-</p>
+                <div style="margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 6px;">
+                    👉 <strong>Instruksi Praktik:</strong> Berdirilah sekarang, peragakan gerakan stilistik tersebut selama 10-15 detik di ruang belajarmu!
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">Laboratorium Gerak ➡️</button>
+            </div>
+        </section>
+
+        <!-- 7. FITUR "LABORATORIUM GERAK" -->
+        <section id="step-7" class="section-card">
+            <h2 class="section-title">🧪 Laboratorium Gerak (1 Gerak → 3 Versi)</h2>
+            <p class="section-desc">Racik variabel Tempo, Tenaga, Ruang, dan Ekspresi untuk merancang contoh gerak stilistikmu sendiri!</p>
+
+            <div class="interactive-lab">
+                <div class="form-group">
+                    <label style="color: var(--accent-gold);">Pilih Gerak Dasar:</label>
+                    <select id="labBaseMove" class="form-control" onchange="runLabSimulation()">
+                        <option value="BERJALAN">BERJALAN</option>
+                        <option value="DUDUK">DUDUK</option>
+                        <option value="MENJANGKAU BENDA">MENJANGKAU BENDA</option>
+                        <option value="MEMBUKA PINSU">MEMBUKA PINTU</option>
+                    </select>
+                </div>
+
+                <div class="control-grid">
+                    <div class="control-item">
+                        <label>Tempo (Kecepatan):</label>
+                        <select id="labTempo" onchange="runLabSimulation()">
+                            <option value="Lambat (Slow-Motion)">Lambat</option>
+                            <option value="Sedang (Normal)" selected>Sedang</option>
+                            <option value="Cepat (Staccato)">Cepat</option>
+                        </select>
+                    </div>
+                    <div class="control-item">
+                        <label>Tenaga (Kekuatan):</label>
+                        <select id="labEnergy" onchange="runLabSimulation()">
+                            <option value="Ringan (Melayang)">Ringan</option>
+                            <option value="Sedang (Pas)" selected>Sedang</option>
+                            <option value="Kuat (Tekan/Hentak)">Kuat</option>
+                        </select>
+                    </div>
+                    <div class="control-item">
+                        <label>Ruang (Jangkauan):</label>
+                        <select id="labSpace" onchange="runLabSimulation()">
+                            <option value="Kecil (Menyempit)">Kecil</option>
+                            <option value="Sedang (Biasa)" selected>Sedang</option>
+                            <option value="Besar (Melebar/Penuh)">Besar</option>
+                        </select>
+                    </div>
+                    <div class="control-item">
+                        <label>Ekspresi Emosi:</label>
+                        <select id="labExpression" onchange="runLabSimulation()">
+                            <option value="Sedih">Sedih</option>
+                            <option value="Marah">Marah</option>
+                            <option value="Bahagia" selected>Bahagia</option>
+                            <option value="Takut">Takut</option>
+                            <option value="Terkejut">Terkejut</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="simulation-output">
+                    <h4>🎬 Hasil Racikan Gerak Stilistik:</h4>
+                    <p id="labResultText">Sistem sedang meracik gerakan...</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">Tantangan Imajinasi ➡️</button>
+            </div>
+        </section>
+
+        <!-- 8. FITUR "TANTANGAN IMAJINASI" -->
+        <section id="step-8" class="section-card">
+            <h2 class="section-title">🎭 Tantangan Imajinasi</h2>
+            <p class="section-desc">Pilihlah dan lakukan eksplorasi fisik secara mandiri untuk kelima tantangan di bawah ini!</p>
+
+            <div id="challengeList">
+                <!-- Generasi via JS -->
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">Kerjakan Kuis ➡️</button>
+            </div>
+        </section>
+
+        <!-- 9. KUIS INTERAKTIF -->
+        <section id="step-9" class="section-card">
+            <h2 class="section-title">📝 Kuis Interaktif Akting Stilistik</h2>
+            <p class="section-desc">Jawablah 10 soal pilihan ganda di bawah ini (Mudah, Sedang, & HOTS)!</p>
+
+            <div id="quizContainer">
+                <!-- Soal kuis digenerasi via JS -->
+            </div>
+
+            <button type="button" class="btn btn-gold btn-block" onclick="submitQuiz()">
+                ✅ Selesai & Hitung Skor
+            </button>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">Refleksi Siswa ➡️</button>
+            </div>
+        </section>
+
+        <!-- 10. REFLEKSI SISWA -->
+        <section id="step-10" class="section-card">
+            <h2 class="section-title">🤔 Refleksi Belajar Siswa</h2>
+            <p class="section-desc">Luapkan pesan dan kesan pemahamanmu setelah mempelajari materi ini.</p>
+
+            <div class="form-group">
+                <label>Bagaimana tingkat pemahamanmu terhadap materi hari ini?</label>
+                <div class="emoji-rating">
+                    <button class="emoji-btn" onclick="selectEmoji(this, 'Sangat Memahami')">
+                        😊
+                        <span>Sangat Paham</span>
+                    </button>
+                    <button class="emoji-btn" onclick="selectEmoji(this, 'Cukup Memahami')">
+                        🙂
+                        <span>Cukup Paham</span>
+                    </button>
+                    <button class="emoji-btn" onclick="selectEmoji(this, 'Masih Perlu Latihan')">
+                        😐
+                        <span>Perlu Latihan</span>
+                    </button>
+                    <button class="emoji-btn" onclick="selectEmoji(this, 'Belum Memahami')">
+                        😟
+                        <span>Belum Paham</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="refPaham">1. Apa yang paling kamu pahami tentang gerak stilistik hari ini?</label>
+                <textarea id="refPaham" class="form-control" rows="2" placeholder="Tuliskan di sini..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="refMenarik">2. Gerakan eksplorasi apa yang paling menarik bagimu?</label>
+                <textarea id="refMenarik" class="form-control" rows="2" placeholder="Tuliskan di sini..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="refKesulitan">3. Apa kesulitan utama yang kamu temui saat mencoba gerak stilistik?</label>
+                <textarea id="refKesulitan" class="form-control" rows="2" placeholder="Tuliskan di sini..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="refCara">4. Bagaimana caramu merubah gerak biasa (realistik) menjadi bernilai seni (stilistik)?</label>
+                <textarea id="refCara" class="form-control" rows="2" placeholder="Tuliskan di sini..."></textarea>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">LKPD & Pengumpulan ➡️</button>
+            </div>
+        </section>
+
+        <!-- 11. LKPD DIGITAL & 12. PENGUMPULAN HASIL -->
+        <section id="step-11" class="section-card">
+            <h2 class="section-title">📑 LKPD Digital & Pengumpulan Hasil</h2>
+            <p class="section-desc">Unduh/buka Lembar Kerja Peserta Didik (LKPD) dan kirimkan rekapan data belajarmu ke guru.</p>
+
+            <div class="materi-box" style="margin-bottom: 25px;">
+                <h4>📄 Lembar Kerja Peserta Didik (LKPD) Digital:</h4>
+                <p style="margin-bottom: 12px;">Akses lembar kerja siswa berbasis Google Docs untuk tugas pendalaman kelompok/mandiri.</p>
+                <button class="btn btn-outline" onclick="openLKPD()">
+                    📂 BUKA LKPD (Google Docs)
+                </button>
+            </div>
+
+            <div class="materi-box">
+                <h4>📤 Kirimkan Rekapan Hasil Belajar:</h4>
+                <p style="margin-bottom: 12px;">Pastikan kamu telah mengisi kuis dan refleksi siswa sebelum menekan tombol kirim di bawah ini.</p>
+                <button id="btnSubmitData" class="btn btn-gold btn-block" onclick="sendStudentResults()">
+                    🚀 KIRIM HASIL BELAJAR KE GURU
+                </button>
+                <div id="submitStatus" style="margin-top: 10px; font-weight: 600;"></div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="prevStep()">⬅️ Sebelumnya</button>
+                <button class="btn" onclick="nextStep()">Lihat Kartu Hasil ➡️</button>
+            </div>
+        </section>
+
+        <!-- 13. HALAMAN HASIL / RANGKUMAN FINAL -->
+        <section id="step-12" class="section-card">
+            <div style="text-align: center; padding: 20px 10px;">
+                <span style="font-size: 4rem;">🏆</span>
+                <h2 style="color: var(--velvet-purple); margin-bottom: 10px;">Selamat! Kamu Telah Menyelesaikan Pembelajaran</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Berikut adalah rangkuman pencapaian belajar Akting Stilistikmu hari ini:</p>
+
+                <div style="background: var(--light-bg); padding: 20px; border-radius: 12px; max-width: 500px; margin: 0 auto; text-align: left; border: 2px dashed var(--accent-gold);">
+                    <p><strong>Nama Siswa:</strong> <span id="resName">-</span></p>
+                    <p><strong>Kelas:</strong> <span id="resClass">-</span></p>
+                    <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
+                    <p><strong>Skor Kuis:</strong> <span id="resScore" style="font-size: 1.3rem; font-weight: bold; color: var(--velvet-purple);">0</span> / 100</p>
+                    <p><strong>Jumlah Jawaban Benar:</strong> <span id="resCorrect">0</span> dari 10 Soal</p>
+                    <p><strong>Kategori Keterampilan:</strong> <span id="resCategory" class="badge">-</span></p>
+                    <div style="margin-top: 15px; padding: 10px; background: #fff; border-radius: 6px; font-style: italic; color: #555;" id="resMotivation">
+                        "Teruslah mengeksplorasi olah tubuh dan imajinasimu!"
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn btn-outline" onclick="resetQuizAndLearn()">🔄 Belajar & Kuis Lagi</button>
+                    <button class="btn btn-gold" onclick="goToHome()">🏠 Kembali ke Beranda</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        Media Pembelajaran Digital Seni Teater Kelas 9 - Kurikulum Merdeka (Deep Learning Model)
+    </footer>
+
+    <!-- SCRIPT UTAMA MEDIA PEMBELAJARAN -->
+    <script>
+        /* ==========================================================================
+           KONFIGURASI TAUTAN GOOGLE DOCS (LKPD) & GOOGLE SHEETS / APPS SCRIPT WEB APP
+           ========================================================================== */
+        const CONFIG = {
+            // Masukkan link Google Docs LKPD yang sebenarnya di sini:
+            googleDocsURL: "GOOGLE_DOCS_URL",
+            
+            // Masukkan link Google Apps Script Web App (penghubung Google Sheets) di sini:
+            googleSheetsURL: "GOOGLE_SHEETS_URL"
+        };
+
+        /* STATE APLIKASI */
+        let currentStep = 1;
+        const totalSteps = 12;
+        let studentData = {
+            name: "",
+            studentClass: "",
+            quizScore: 0,
+            correctCount: 0,
+            category: "",
+            understandingLevel: "",
+            reflection: {},
+            completedChallenges: []
+        };
+
+        /* DATA SOAL KUIS (3 Mudah, 4 Sedang, 3 HOTS) */
+        const quizQuestions = [
+            // 3 Soal Mudah
+            {
+                type: "Mudah",
+                q: "1. Apakah yang dimaksud dengan akting stilistik dalam seni teater?",
+                options: [
+                    "Akting yang menirukan kehidupan sehari-hari secara eksak dan persis",
+                    "Akting yang mengubah gerak realistik menjadi gerak bergaya, indah, dan simbolis melalui imajinasi",
+                    "Akting yang hanya membaca teks naskah tanpa gerakan tubuh",
+                    "Akting spontan tanpa tujuan pementasan"
+                ],
+                ans: 1,
+                exp: "Akting stilistik adalah gaya berakting yang mengolah/mengubah gerak realistik menjadi bentuk bergaya (stilasi) yang sarat estetika dan makna simbolis."
+            },
+            {
+                type: "Mudah",
+                q: "2. Manakah dari contoh berikut yang merupakan bentuk gerak realistik?",
+                options: [
+                    "Berjalan membungkuk lambat melambangkan kesedihan mendalam",
+                    "Membuka pintu rumah seperti biasa dalam aktivitas harian",
+                    "Menggerakkan tangan patah-patah menyerupai mesin robot",
+                    "Melompat-lompat melayang untuk melambangkan kebebasan jiwa"
+                ],
+                ans: 1,
+                exp: "Membuka pintu seperti biasa adalah gerak realistik (kehidupan sehari-hari apa adanya)."
+            },
+            {
+                type: "Mudah",
+                q: "3. Aktivitas kecil yang dilakukan aktor untuk mempertegas watak tokoh (seperti memutar jam tangan saat gugup) disebut...",
+                options: ["Movement", "Gesture", "Business / Stage Business", "Stilisasi"],
+                ans: 2,
+                exp: "Business (stage business) adalah gerakan kecil pendukung karakterisasi tokoh."
+            },
+
+            // 4 Soal Sedang
+            {
+                type: "Sedang",
+                q: "4. Perbedaan utama antara gerak teatrikal dan gerak nonteatrikal terletak pada...",
+                options: [
+                    "Jenis pakaian yang dipakai oleh pemain",
+                    "Ada tidaknya niat dan tujuan menyampaikan nilai artistik kepada penonton panggung",
+                    "Kecepatan langkah kaki pemain",
+                    "Lokasi tempat latihan teater"
+                ],
+                ans: 1,
+                exp: "Gerak teatrikal selalu dirancang sengaja untuk disajikan kepada penonton panggung."
+            },
+            {
+                type: "Sedang",
+                q: "5. Dalam mengeksplorasi tokoh raja yang sangat sombong secara stilistik, perpaduan unsur ruang dan tenaga yang paling tepat adalah...",
+                options: [
+                    "Ruang sempit dengan tenaga lembut dan lambat",
+                    "Ruang luas, postur tegap, dengan tenaga kuat dan tegas",
+                    "Ruang terbatas dengan gerakan terburu-buru",
+                    "Ruang bawah dengan gerakan melayang tanpa tenaga"
+                ],
+                ans: 1,
+                exp: "Karakter dominan/sombong biasanya mengeksplorasi ruang luas dengan tenaga kuat dan wibawa."
+            },
+            {
+                type: "Sedang",
+                q: "6. Manakah dari pilihan berikut yang merupakan contoh 'Movement' dalam pementasan teater?",
+                options: [
+                    "Menggelengkan kepala sebagai tanda menolak",
+                    "Memainkan ujung baju saat merasa cemas",
+                    "Perpindahan posisi aktor dari panggung kiri ke panggung kanan",
+                    "Mengerutkan dahi saat berpikir keras"
+                ],
+                ans: 2,
+                exp: "Movement adalah gerak berpindah tempat (ruang) dari satu area panggung ke area lain."
+            },
+            {
+                type: "Sedang",
+                q: "7. Mengapa imajinasi memegang peranan sangat vital dalam akting stilistik?",
+                options: [
+                    "Agar aktor dapat menghafal teks naskah lebih cepat",
+                    "Karena imajinasi memberi bobot rasa, latar situasi abstrak, dan wujud baru pada gerak biasa",
+                    "Karena imajinasi dapat menggantikan latihan fisik olah tubuh",
+                    "Agar aktor tidak perlu berinteraksi dengan lawan main"
+                ],
+                ans: 1,
+                exp: "Imajinasi adalah mesin utama yang memberi makna dan wujud baru pada gerakan fisik realistik."
+            },
+
+            // 3 Soal HOTS
+            {
+                type: "HOTS",
+                q: "8. Seorang aktor diminta mengekspresikan kedukaan yang amat mendalam dalam gaya stilistik. Eksplorasi gerak mana yang paling sarat nilai estetika simbolis?",
+                options: [
+                    "Duduk di kursi lalu mengusap air mata persis seperti orang menangis di rumah",
+                    "Berjalan dengan tempo amat lambat, tubuh perlahan membungkuk seolah tertimpa batu raksasa, lalu roboh bertahap ke lantai",
+                    "Berlari mengelilingi panggung sambil tertawa kencang",
+                    "Berdiri tegak tanpa ekspresi dan membaca teks dengan suara datar"
+                ],
+                ans: 1,
+                exp: "Gerak melambat dan lambat laun roboh secara bertahap melambangkan secara visual beratnya beban emosional yang dirasakan."
+            },
+            {
+                type: "HOTS",
+                q: "9. Analisis dua situasi: (1) Ani menyapu lantai karena piket kelas, (2) Aktor memperagakan gerak menyapu berirama lambat-cepat tanpa sapu untuk menggambarkan kerja buruh. Pernyataan yang tepat adalah...",
+                options: [
+                    "Situasi 1 adalah gerak stilistik, situasi 2 adalah nonteatrikal",
+                    "Situasi 1 adalah gerak realistik harian, situasi 2 adalah gerak stilistik teatrikal yang memanfaatkan imajinasi",
+                    "Kedua situasi adalah gerak realistik tanpa estetika",
+                    "Kedua situasi adalah gerak stilistik karena menggunakan objek menyapu"
+                ],
+                ans: 1,
+                exp: "Situasi 1 adalah aktivitas riil harian (nonteatrikal), sedangkan situasi 2 adalah bentuk rekayasa gerak bergaya untuk pertunjukan (stilistik)."
+            },
+            {
+                type: "HOTS",
+                q: "10. Dalam Laboratorium Gerak, untuk mengubah gerak 'berjalan biasa' menjadi gerak 'stilistik dunia mesin', kombinasi variabel mana yang paling konsisten?",
+                options: [
+                    "Ubah ekspresi menjadi menangis tanpa mengubah gerakan kaki",
+                    "Modifikasi Tempo (patah-patah/metronomis), Tenaga (kaku/kuat), Ruang (geometris/terukur), dan Ekspresi (datar/robotik)",
+                    "Abaikan ruang dan cukup percepat gerak kaki secepat mungkin",
+                    "Pertahankan gerak berjalan wajar seperti aktivitas harian"
+                ],
+                ans: 1,
+                exp: "Mengubah seluruh variabel (tempo, tenaga, ruang, ekspresi) secara padu akan menciptakan keutuhan stilistik gerak mesin/robot."
+            }
+        ];
+
+        /* DATA FITUR "AMATI DAN BEDAKAN" */
+        const observeData = [
+            { text: "1. Seseorang berjalan santai sambil melihat HP di trotoar.", type: "A", exp: "Realistik: Merupakan gerakan alami sehari-hari tanpa stilisasi." },
+            { text: "2. Aktor berjalan melayang sangat lambat untuk melambangkan jiwa yang bebas.", type: "B", exp: "Stilistik: Gerakan dilebih-lebihkan dan diperlambat untuk simbolis." },
+            { text: "3. Terkejut dengan melompat ke belakang, membeku 3 detik, lalu membelalakkan mata lebar-lebar.", type: "B", exp: "Stilistik: Menggunakan teknik pause dan ekspresi eksagerasi." },
+            { text: "4. Marah dengan membanting pintu kamar hingga tertutup rapat.", type: "A", exp: "Realistik: Keadaan merespons emosi secara biasa dalam keseharian." },
+            { text: "5. Membawa kotak belanja ringan seolah-olah membawa beban 100 kg hingga tubuh terhuyung kaku.", type: "B", exp: "Stilistik: Memanfaatkan gerak pantomimic/imajinatif stilistik." },
+            { text: "6. Membuka pintu lalu melangkah masuk ke ruangan.", type: "A", exp: "Realistik: Aksi rutin harian tanpa manipulasi tempo atau estetika." },
+            { text: "7. Melihat kilatan petir dengan gerakan kepala patah-patah dan tangan mengepal kaku menengadah langit.", type: "B", exp: "Stilistik: Gerak dibentuk secara ekspresif teatrikal." }
+        ];
+
+        /* DATA FITUR "TANTANGAN IMAJINASI" */
+        const challenges = [
+            "1. Kamu berjalan di tengah hujan deras melawan angin kencang.",
+            "2. Kamu melihat sesuatu yang sangat mengejutkan di balik tirai.",
+            "3. Kamu sedang mengangkat dan membawa benda teater yang sangat berat.",
+            "4. Kamu bergerak dan berjalan memutar panggung seperti robot tua.",
+            "5. Kamu berjalan menjadi tokoh Raja/Ratu yang sangat sombong dan angkuh."
+        ];
+
+        /* INISIALISASI SAAT HALAMAN DIMUAT */
+        window.addEventListener('DOMContentLoaded', () => {
+            renderObserveSection();
+            renderChallengeSection();
+            renderQuizSection();
+            updateProgressBar();
+        });
+
+        /* MULTI-STEP NAVIGATION LOGIC */
+        function showStep(step) {
+            document.querySelectorAll('.section-card').forEach(el => el.classList.remove('active'));
+            const target = document.getElementById(`step-${step}`);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            currentStep = step;
+            updateProgressBar();
+        }
+
+        function nextStep() {
+            if (currentStep === 1) {
+                const name = document.getElementById('inputName').value.trim();
+                const cls = document.getElementById('inputClass').value;
+                if (!name || !cls) {
+                    alert("Mohon isi Nama Lengkap dan Kelas terlebih dahulu!");
+                    return;
+                }
+                studentData.name = name;
+                studentData.studentClass = cls;
+                document.getElementById('badgeName').innerText = name;
+                document.getElementById('badgeClass').innerText = cls;
+                document.getElementById('userBadge').style.display = 'block';
+            }
+            if (currentStep < totalSteps) {
+                showStep(currentStep + 1);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                showStep(currentStep - 1);
+            }
+        }
+
+        function startLearning() {
+            nextStep();
+        }
+
+        function updateProgressBar() {
+            const percent = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            document.getElementById('progressBar').style.width = `${percent}%`;
+        }
+
+        /* 4. MATERI TABS LOGIC */
+        function openTab(evt, tabId) {
+            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(tb => tb.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        /* 5. RENDER "AMATI DAN BEDAKAN" */
+        function renderObserveSection() {
+            const container = document.getElementById('observeList');
+            container.innerHTML = '';
+
+            observeData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'scenario-card';
+                card.innerHTML = `
+                    <p><strong>Deskripsi Gerak:</strong> ${item.text}</p>
+                    <div class="option-group">
+                        <button class="btn-option" onclick="checkObserve(${index}, 'A', this)">A. Gerak Realistik</button>
+                        <button class="btn-option" onclick="checkObserve(${index}, 'B', this)">B. Gerak Stilistik</button>
+                    </div>
+                    <div id="obs-feedback-${index}" class="feedback-box"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkObserve(index, choice, btnEl) {
+            const data = observeData[index];
+            const fbBox = document.getElementById(`obs-feedback-${index}`);
+            
+            // Toggle highlight button
+            const parent = btnEl.parentElement;
+            parent.querySelectorAll('.btn-option').forEach(b => b.style.borderColor = '#dcdde1');
+            
+            fbBox.style.display = 'block';
+            if (choice === data.type) {
+                btnEl.style.borderColor = '#2ecc71';
+                fbBox.className = 'feedback-box correct';
+                fbBox.innerHTML = `✅ <strong>Benar!</strong> ${data.exp}`;
+            } else {
+                btnEl.style.borderColor = '#e74c3c';
+                fbBox.className = 'feedback-box incorrect';
+                fbBox.innerHTML = `❌ <strong>Coba lagi!</strong> Perhatikan ciri-ciri geraknya. (${data.exp})`;
+            }
+        }
+
+        /* 6. UBAH GERAK LOGIC */
+        function updateStyleChallenge() {
+            const val = document.getElementById('selectStyle').value;
+            const box = document.getElementById('styleInstructionBox');
+            const title = document.getElementById('styleTitle');
+            const inst = document.getElementById('styleInstruction');
+
+            if (!val) {
+                box.style.display = 'none';
+                return;
+            }
+
+            box.style.display = 'block';
+            if (val === 'lelah') {
+                title.innerText = '🎭 Gaya: Sangat Lelah (Beban Berat)';
+                inst.innerText = 'Langkah lambat, bahu melengkung ke bawah, kepala terkulai, napas tersengal-sengal berirama, seolah mengusung batu besar di atas punggung.';
+            } else if (val === 'bahagia') {
+                title.innerText = '🎭 Gaya: Sangat Bahagia (Melayang)';
+                inst.innerText = 'Langkah jinjit membal, tangan terentang ringan, senyum melebar, kepala sering menengadah, mengalir seakan tidak menyentuh tanah.';
+            } else if (val === 'robot') {
+                title.innerText = '🎭 Gaya: Seperti Robot (Machine Style)';
+                inst.innerText = 'Langkah kaku, persendian lutut dan siku bergerak patah-patah (staccato), pandangan lurus datar tanpa kedipan emosi.';
+            } else if (val === 'angin') {
+                title.innerText = '🎭 Gaya: Terkena Angin Kencang';
+                inst.innerText = 'Tubuh miring condong ke depan, tangan menutupi wajah, langkah tertahan-tahan dengan sentakan dorongan kuat dari kaki belakang.';
+            } else if (val === 'bulan') {
+                title.innerText = '🎭 Gaya: Berjalan di Bulan (Low Gravity)';
+                inst.innerText = 'Melompat perlahan, gerakan melayang lambat (slow-motion), tumpuan mendarat lembut dengan elastisitas lutut yang dilebih-lebihkan.';
+            }
+        }
+
+        /* 7. LABORATORIUM GERAK LOGIC */
+        function runLabSimulation() {
+            const move = document.getElementById('labBaseMove').value;
+            const tempo = document.getElementById('labTempo').value;
+            const energy = document.getElementById('labEnergy').value;
+            const space = document.getElementById('labSpace').value;
+            const expr = document.getElementById('labExpression').value;
+
+            const resText = `Gerak dasar <strong>${move}</strong> digubah menjadi stilistik dengan Tempo <strong>${tempo}</strong>, Tenaga <strong>${energy}</strong>, Jangkauan Ruang <strong>${space}</strong>, serta Ekspresi <strong>${expr}</strong>.<br><br>
+            ✨ <em>"Gerakanmu menjadi lebih stilistik karena terdapat kombinasi eksploratif pada variabel tempo, tenaga, ruang, dan ekspresi panggung!"</em>`;
+
+            document.getElementById('labResultText').innerHTML = resText;
+        }
+
+        /* 8. RENDER TANTANGAN IMAJINASI */
+        function renderChallengeSection() {
+            const container = document.getElementById('challengeList');
+            container.innerHTML = '';
+
+            challenges.forEach((ch, idx) => {
+                const item = document.createElement('div');
+                item.className = 'challenge-item';
+                item.id = `ch-item-${idx}`;
+                item.innerHTML = `
+                    <span>${ch}</span>
+                    <button class="btn btn-gold" onclick="markChallengeDone(${idx})">
+                        ✋ Saya Sudah Mencoba
+                    </button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function markChallengeDone(idx) {
+            const el = document.getElementById(`ch-item-${idx}`);
+            el.classList.add('done');
+            const btn = el.querySelector('button');
+            btn.innerHTML = '✅ Terlaksana';
+            btn.style.background = '#2ecc71';
+            btn.disabled = true;
+
+            if (!studentData.completedChallenges.includes(challenges[idx])) {
+                studentData.completedChallenges.push(challenges[idx]);
+            }
+        }
+
+        /* 9. RENDER KUIS & LOGIC HIKUNG SKOR */
+        function renderQuizSection() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+
+            quizQuestions.forEach((qItem, qIdx) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'quiz-question';
+                qDiv.innerHTML = `
+                    <h4><span style="background:var(--velvet-purple); color:#fff; padding:2px 8px; border-radius:4px; font-size:0.8rem;">${qItem.type}</span> ${qItem.q}</h4>
+                    <div class="quiz-answers">
+                        ${qItem.options.map((opt, oIdx) => `
+                            <button type="button" class="quiz-ans-btn" onclick="selectQuizAnswer(${qIdx},${oIdx}, this)">
+                                ${String.fromCharCode(65 + oIdx)}.${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(qDiv);
+            });
+        }
+
+        let userAnswers = {};
+
+        function selectQuizAnswer(qIdx, oIdx, btnEl) {
+            userAnswers[qIdx] = oIdx;
+            const parent = btnEl.parentElement;
+            parent.querySelectorAll('.quiz-ans-btn').forEach(b => b.classList.remove('selected'));
+            btnEl.classList.add('selected');
+        }
+
+        function submitQuiz() {
+            if (Object.keys(userAnswers).length < quizQuestions.length) {
+                if (!confirm("Kamu belum menjawab semua soal kuis. Yakin ingin mengumpulkan sekarang?")) {
+                    return;
+                }
+            }
+
+            let correct = 0;
+            quizQuestions.forEach((qItem, qIdx) => {
+                if (userAnswers[qIdx] === qItem.ans) {
+                    correct++;
+                }
+            });
+
+            const score = (correct / quizQuestions.length) * 100;
+            studentData.correctCount = correct;
+            studentData.quizScore = score;
+
+            let cat = "";
+            let badgeClass = "";
+            let motivation = "";
+
+            if (score >= 90) {
+                cat = "Sangat Baik";
+                badgeClass = "badge-sangat-baik";
+                motivation = "Luar biasa! Pemahaman dan daya imajinasi stilistikmu sangat tajam!";
+            } else if (score >= 80) {
+                cat = "Baik";
+                badgeClass = "badge-baik";
+                motivation = "Bagus sekali! Kamu sudah memahami konsep dasar gerak stilistik dengan baik.";
+            } else if (score >= 70) {
+                cat = "Cukup";
+                badgeClass = "badge-cukup";
+                motivation = "Cukup baik. Tingkatkan lagi latihan olah tubuh dan eksplorasi imajinasimu.";
+            } else {
+                cat = "Perlu Latihan Lagi";
+                badgeClass = "badge-perlu-latihan";
+                motivation = "Jangan berkecil hati. Pelajari kembali materi dan coba lakukan eksplorasi fisik secara intensif.";
+            }
+
+            studentData.category = cat;
+
+            // Update UI Halaman Hasil
+            document.getElementById('resName').innerText = studentData.name || "-";
+            document.getElementById('resClass').innerText = studentData.studentClass || "-";
+            document.getElementById('resScore').innerText = score;
+            document.getElementById('resCorrect').innerText = correct;
+            
+            const badgeEl = document.getElementById('resCategory');
+            badgeEl.innerText = cat;
+            badgeEl.className = `badge ${badgeClass}`;
+
+            document.getElementById('resMotivation').innerText = motivation;
+
+            alert(`Kuis Selesai!\nSkor Anda: ${score}\nKategori: ${cat}`);
+            nextStep();
+        }
+
+        /* 10. REFLEKSI EMOJI LOGIC */
+        function selectEmoji(btnEl, val) {
+            document.querySelectorAll('.emoji-btn').forEach(b => b.classList.remove('selected'));
+            btnEl.classList.add('selected');
+            studentData.understandingLevel = val;
+        }
+
+        /* 11. LKPD & 12. PENGUMPULAN HASIL */
+        function openLKPD() {
+            if (CONFIG.googleDocsURL === "GOOGLE_DOCS_URL" || !CONFIG.googleDocsURL) {
+                alert("Petunjuk Guru: Link Google Docs LKPD belum dikonfigurasi di variabel CONFIG.googleDocsURL pada kode JavaScript.");
+            } else {
+                window.open(CONFIG.googleDocsURL, '_blank');
+            }
+        }
+
+        function sendStudentResults() {
+            // Ambil data refleksi
+            studentData.reflection = {
+                paham: document.getElementById('refPaham').value,
+                menarik: document.getElementById('refMenarik').value,
+                kesulitan: document.getElementById('refKesulitan').value,
+                cara: document.getElementById('refCara').value
+            };
+
+            const statusEl = document.getElementById('submitStatus');
+            statusEl.style.color = '#341f97';
+            statusEl.innerText = "⏳ Sedang mengirim data hasil belajar...";
+
+            if (CONFIG.googleSheetsURL === "GOOGLE_SHEETS_URL" || !CONFIG.googleSheetsURL) {
+                setTimeout(() => {
+                    statusEl.style.color = '#d35400';
+                    statusEl.innerHTML = "⚠️ Mode Simulasi: Link Google Sheets/Apps Script Web App belum dipasang oleh guru. Data hasil belajar tersimpan di perangkat ini.";
+                    console.log("Payload Data Siswa:", studentData);
+                }, 1000);
+            } else {
+                // Kirim via Fetch API ke Google Apps Script Web App
+                fetch(CONFIG.googleSheetsURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(studentData)
+                })
+                .then(() => {
+                    statusEl.style.color = '#27ae60';
+                    statusEl.innerText = "✅ Berhasil! Hasil belajar kamu telah terkirim ke Guru.";
+                })
+                .catch(err => {
+                    statusEl.style.color = '#c0392b';
+                    statusEl.innerText = "❌ Terjadi kendala saat mengirim data. Coba lagi atau laporkan pada guru.";
+                    console.error(err);
+                });
+            }
+        }
+
+        /* 13. RESET & RESTART */
+        function resetQuizAndLearn() {
+            userAnswers = {};
+            renderQuizSection();
+            showStep(4); // Kembali ke Materi
+        }
+
+        function goToHome() {
+            showStep(1);
+        }
+    </script>
+</body>
+</html>
